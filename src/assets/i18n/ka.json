@@ -1,0 +1,49 @@
+{
+  "Dashboard": "სამუშაო დაფა",
+  "Charts": "Charts",
+  "Tables": "Tables",
+  "Forms": "ფორმები",
+  "Boostrap Element": "Boostrap ელემენტები",
+  "Boostrap Grid": "Boostrap Grid",
+  "Component": "კომპონენტები",
+  "Menu": "მენიუ",
+  "Submenu": "ქვე მენიუ",
+  "Blank Page": "Blank Page",
+  "More Theme": "More Themes",
+  "Download Now": "Download Now",
+  "Language": "ენა",
+  "English": "ინგლისური",
+  "French": "ფრანგული",
+  "Urdu": "ურდუ",
+  "Spanish": "ესპანური",
+  "Italian": "იტალიური",
+  "Farsi": "არაბული",
+  "Search" : "ძებნა",
+  "Settings" : "პარამეტრები",
+  "Profile" : "კაბინეტი",
+  "Inbox" : "ინბოქსი",
+  "Login" : "ავტორიზაცია",
+  "Log Out" : "გასვლა",
+  "First Name" : "სახელი",
+  "Last Name" : "გვარი",
+  "Total Score" : "ქულები",
+
+  "Add User" : "დამატება",
+
+  "User" : "მომხმარებელი",
+  "Photo" : "ფოტო",
+  "Name" : "სრული სახელი",
+  "Email" : "ელ.ფოსტა",
+
+  "Users" : "მომხმარებლები",
+  "View Details" : "დეტალურად ნახვა",
+
+
+  "Posts" : "პოსტები",
+  "Countries" : "ქვეყნები",
+  "Home" : "მთავარი",
+
+
+
+  "Enter countri name..." : "ჩაწერეთ ქვეყნის სახელი..."
+}

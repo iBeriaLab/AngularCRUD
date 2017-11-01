@@ -1,0 +1,130 @@
+<div class="card card-default card-reverse mb-3">
+  <div class="card-header card-default">
+    {{ 'Users' | translate }}
+
+    <div class="pull-right">
+      <span class="badge badge-pill badge-info">TOTAL {{(items | async)?.length}}</span>
+    </div>
+  </div>
+  <div class="bg-white">
+
+      <div class="col-xl-12 text-xs-center no-padder">
+          <div class="card-block card-primary">
+            <div class="row">
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <input onkeypress="return makeGeo(this,event);" type="text" class="form-control" placeholder="{{ 'Name' | translate }}" #newfirstname />
+                </fieldset>
+              </div>
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <input onkeypress="return makeGeo(this,event);" type="text" class="form-control" placeholder="{{ 'Email' | translate }}" #newlastname />
+                </fieldset>
+              </div>
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <input type="text" class="form-control" placeholder="{{ 'Total Score' | translate }}" #newtotalscore />
+                </fieldset>
+              </div>
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <button class="btn btn-primary2" (click)="addItem(newfirstname.value, newlastname.value, newtotalscore.value)">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                      {{ 'Add User' | translate }}
+                  </button>
+
+                  <div class="pull-right" style="padding-top: 10px;">
+
+                  </div>
+                </fieldset>
+              </div>
+
+
+          </div>
+      </div>
+    </div>
+
+
+
+    <table class="table">
+      <thead>
+      <tr>
+
+          <th scope="col">{{ 'Photo' | translate }}</th>
+          <th scope="col">{{ 'Name' | translate }}</th>
+          <th scope="col">{{ 'Email' | translate }}</th>
+          <th scope="col"></th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of items | async | paginate: { itemsPerPage: 3, currentPage: p }">
+          <th scope="row"><img src="{{ item.photo }}" style="width: 30px;border-radius: 50%;"></th>
+          <td>{{ item.name }}</td>
+          <td>{{ item.email }}</td>
+          <td style="padding:8px;">
+            <button type="button" class="btn btn-primary btn-link" (click)="open(content)">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-sm text-danger btn-link" (click)="deleteItem(item.key)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <ng-template #delete let-c="close" let-d="dismiss">
+      <div class="modal-body">
+
+      </div>
+    </ng-template>
+
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul *ngFor="let item of items | async">
+          <li></li>
+          <li><input type="text" #updatename [value]="item.name" /></li>
+          <li><input type="text" #updatemail [value]="item.email" /></li>
+          <li><input type="text" #updatescore [value]="item.totalscore" /></li>
+          <li><button (click)="updateItem(item.key, updatename.value, updatemail.value, updatescore.value)">Update</button></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+      </div>
+    </ng-template>
+<!--
+<div style="width: 100%;">
+          <tr>
+            <li></li>
+            <li><input type="text" #updatename [value]="item.name" /></li>
+            <li><input type="text" #updatemail [value]="item.email" /></li>
+            <li><input type="text" #updatescore [value]="item.totalscore" /></li>
+            <li><button (click)="updateItem(item.key, updatename.value, updatemail.value, updatescore.value)">Update</button></li>
+          </tr>
+        </div>
+-->
+      <ul style="display: none">
+        <li *ngFor="let item of items | async">
+          <input type="text" #updatefirstname [value]="item.firstname" />
+          <button (click)="updateItem(item.key, updatefirstname.value)">Update</button>
+          <button (click)="deleteItem(item.key)">Delete</button>
+        </li>
+      </ul>
+
+
+
+  </div>
+  <div class="card-footer card-default">
+    <button class="btn-sm btn btn-danger" (click)="deleteEverything()">Delete All</button>
+
+    <div class="pull-right">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

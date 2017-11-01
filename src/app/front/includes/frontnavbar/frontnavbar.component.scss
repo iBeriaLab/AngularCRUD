@@ -1,0 +1,30 @@
+.dropdown-menu {
+  top: 115%;
+  background-color: #fafcfc;
+  color: rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(71, 107, 189, 0.21);
+  border-right: 1px solid rgba(71, 107, 189, 0.21);
+  border-bottom: 1px solid rgba(71, 107, 189, 0.21);
+}
+
+.dropdown-menu a {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-link {
+  display: block;
+  padding: .5em 1em;
+}
+
+.nav-itema{
+  padding-top: 10px;
+}
+
+.bg-faded {
+  background-color: #fafcfc;
+  border-bottom: 1px solid rgba(71, 107, 189, 0.21);
+}
+
+.switch-lang {
+  margin: 0 10px;
+}

@@ -1,0 +1,132 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">{{ 'Dashboard' | translate }} <small>Statistics Overview</small></h2>
+    <!--<div class="row">
+        <div class="col-md-12">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slider of sliders">
+                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                    <div class="carousel-caption">
+                        <h3>{{slider.label}}</h3>
+                        <p>{{slider.text}}</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
+    <hr>-->
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-primary'" [icon]="'fa-users'" [count]="(users | async)?.length" [label]=" 'User' | translate " ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-info'" [icon]="'fa-newspaper-o'" [count]="(posts | async)?.length" [label]="'Posts'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-warning'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+        </div>
+    </div>
+<br>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat-box [bgClass]="'card-defaulti'" [url]="'/app/countries'" [icon]="'fa-flag-o'" [count]="(countries | async)?.length" [label]=" 'Countries' | translate " ></app-stat-box>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat-box [bgClass]="'card-info'" [url]="'/app/countries'" [icon]="'fa-newspaper-o'" [count]="(posts | async)?.length" [label]="'Posts'" ></app-stat-box>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat-box [bgClass]="'card-success'" [url]="'/app/countries'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat-box>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat-box [bgClass]="'card-danger'" [url]="'/app/countries'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat-box>
+        </div>
+    </div>
+
+    <hr />
+    <!--<ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+    <hr />-->
+    <div class="row">
+        <div class="col-lg-8">
+            <!--<div class="card card-default">
+                <div class="card-header">
+                    <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+                </div>
+
+                <app-timeline></app-timeline>
+
+            </div>-->
+            <!-- /.card -->
+
+
+                    <app-dashboard-users-list></app-dashboard-users-list>
+
+
+
+        </div>
+
+
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+
+                <app-notification></app-notification>
+
+            <!--<app-chat></app-chat> -->
+            <!-- /.card .chat-card -->
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider slider-danger"></span>
+            </label><br><br>
+
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider slider-danger round"></span>
+            </label>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider slider-blue round"></span>
+            </label>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider slider-warning round"></span>
+            </label>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider slider-black round"></span>
+            </label>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            123
+        </div>
+    </div>
+
+</div>

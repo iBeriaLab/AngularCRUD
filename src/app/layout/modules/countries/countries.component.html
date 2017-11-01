@@ -1,0 +1,73 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Countries' | translate" [icon]="'fa-newspaper-o'"></app-page-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-3">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <i class="fa fa-question-circle" aria-hidden="true"  placement="right" ngbTooltip='ქართული შრიფტის გამოსაყენებლად დააკლიკეთ ღილაკს "~"'></i>
+            </span>
+            <input onkeypress="return makeGeo(this,event);" class="form-control" type="text" placeholder="{{ 'Enter countri name...' | translate}}">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="card mb-3">
+        <div class="card-header">
+          Countries  {{(countries | async)?.length}}
+
+          <div class="pull-right">
+            <button class="btn btn-danger btn-sm" (click)="deleteEverything()">Delete All</button>
+          </div>
+        </div>
+
+
+
+        <div class=" table-responsive">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Body</th>
+              <th>Category</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let country of countries | async | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+              <th scope="row">{{i}}</th>
+              <td><img src="../assets/images/flags/{{ country.code }}.svg" style="width: 40px;"></td>
+              <td>{{ country.name }}</td>
+              <td>{{ country.phone_code }}</td>
+              <td>
+
+                <button type="button" class="btn btn-primary btn-link" (click)="isCollapsedi = !isCollapsedi"
+                        [attr.aria-expanded]="!isCollapsedi" aria-controls="editpostcollapse">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
+
+
+                <button class="btn text-danger btn-link" (click)="deleteItem(post.key)">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </td>
+
+
+            </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+          </table>
+        </div>
+
+
+      </div>
+
+      <div class="row">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+</div>
